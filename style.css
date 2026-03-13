@@ -1,0 +1,806 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    }
+
+body {
+    background: #7d7d7d;
+    background: linear-gradient(180deg, rgba(125, 125, 125, 1) 0%, rgba(230, 230, 230, 1) 100%);
+    }
+
+header{
+    background: #000000;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.671) 80%, rgba(0, 0, 0, 0) 100%);
+    height: 15%;
+
+    .Nazwa{
+    padding: 0.5%;
+    padding-left: 1%;
+    }
+
+        .n1, .n2{
+            font-family: 'Kalam';
+            font-size: 30px;
+        }
+
+        .n1 {
+            color: #FFD900;
+        }
+
+        .n2 {
+            color: #ffffff;
+            margin-left: -3px;
+            margin-right: -3px;
+        }
+
+    }
+@media (max-height: 550px) {
+    header{
+        .n1, .n2{
+            font-size: 20px;
+        }
+    }
+    }
+@media (max-height: 360px) {
+    header{
+        .n1, .n2{
+            font-size: 10px;
+        }
+    }
+    }
+
+    .col{
+      width: 9%;
+      background-color: #cfcfcf;
+      border-radius: 8px;
+      border: #000 solid 2px;
+      margin-left: 0.5%;
+      margin-top: -10px;
+
+      .text_col{
+        text-align: center;
+        padding: 0.5%;
+      }
+    }
+
+        @media (max-height: 550px) {
+    .col{
+      margin-top: -9px;
+
+      .text_col{
+        padding: 0.2%;
+        font-size: 15px;
+      }
+    }
+    }
+
+    @media (max-height: 400px) {
+    .col{
+      margin-top: -6px;
+
+      .text_col{
+        padding: 0.3%;
+        font-size: 10px;
+      }
+    }
+    }
+
+
+main{
+  display: flex;
+}
+
+
+
+/* Поиск */
+
+.forma{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+}
+
+    .search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 400px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .input-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .box {
+    border: 2px solid #000;
+    border-radius: 10px;
+    background-color: #cfcfcf;
+    padding: 3px 10px;
+    font-size: 16px;
+    color: #222;
+    outline: none;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding-right: 40px;
+    box-sizing: border-box;
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+  }
+  
+  .select-box {
+    flex: 1;
+    cursor: pointer;
+  }
+  
+  .price-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-sizing: border-box;
+  }
+  
+  .price-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 50px;
+    font-size: 16px;
+    text-align: center;
+    color: #222;
+  }
+  
+  /* Убираем стрелочки у полей с числами */
+  .price-box input::-webkit-outer-spin-button,
+  .price-box input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  @media (max-height: 550px) {
+  .forma{
+    margin: 5px;
+}
+.search-form {
+    gap: 5px;
+    width: 350px;
+  }
+  
+  .row {
+    gap: 2px;
+  }
+  
+  .box {
+    padding: 1px 7px;
+    font-size: 12px;
+  }
+
+    .search-icon {
+    width: 12px;
+    height: 12px;
+
+  }
+  
+    .price-box input {
+    width: 50px;
+    font-size: 12px;
+
+  }
+    }
+
+
+      @media (max-height: 400px) {
+  .forma{
+    margin: 2px;
+}
+.search-form {
+    gap: 2px;
+    width: 300px;
+  }
+  
+  .row {
+    gap: 1px;
+  }
+  
+  .box {
+    padding: 1px 7px;
+    font-size: 10px;
+  }
+
+    .search-icon {
+    width: 10px;
+    height: 10px;
+
+  }
+  
+    .price-box input {
+    width: 50px;
+    font-size: 10px;
+
+  }
+    }
+
+
+
+
+
+/* блок */
+
+.block {
+  background-color: #547150;
+  width: 200px;
+  height: 260px;
+  border: black solid 2px;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding-top: 5px;
+  margin: 10px;
+  position: relative;
+
+  .di {
+    position: relative; 
+    width: 190px;
+    height: 120px; 
+    background-color: #d9d9d9;
+    border: black solid 2px;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+
+    .main-img {
+      width: 110px;
+    }
+
+    /* Блок с кнопками поверх картинки */
+    .actions {
+      position: absolute; /* Отрываем от обычного потока документа */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex; /* Выстраиваем кнопки в ряд */
+      opacity: 0; /* Полностью прячем */
+      transition: opacity 0.2s ease-in-out; /* Плавное появление */
+
+      .btn-vik {
+        width: 50%;
+        height: 100%;
+        background-color: #00ff0d93;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        img { width: 40px; }
+      }
+
+      .btn-mus {
+        width: 50%;
+        height: 100%;
+        background-color: #ff000093;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        img { width: 40px; }
+      }
+    }
+
+    /* Магия наведения: при hover на .di, меняем прозрачность .actions */
+    &:hover .actions {
+      opacity: 1;
+    }
+  }
+
+  .ops {
+    margin: 5px 0 0 10px;
+  }
+
+  .cen {
+    margin: 5px 0 0 10px;
+    /* Убрал твой margin-top: 47%, лучше потом спозиционировать этот текст через absolute вниз карточки или через flex-grow */
+  }
+}
+
+
+
+
+/* Острів */
+.island {
+  width: 20%;
+  background-color: #A39DC3;
+  border: solid black 2px;
+  position: fixed;
+  
+  bottom: 20px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  
+  display: flex; 
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px; 
+
+  img {
+    width: 30px;
+    cursor: pointer;
+  }
+}
+
+
+
+    @media (max-width: 1180px) {
+.island {
+  width: 25%;
+
+  img {
+    width: 25px;
+    cursor: pointer;
+  }
+}
+    }
+
+
+    @media (max-width: 900px) {
+.island {
+  width: 30%;
+  background-color: #A39DC3;
+  border: solid black 2px;
+  position: fixed;
+  
+  bottom: 20px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  
+  display: flex; 
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px; 
+
+  img {
+    width: 20px;
+    cursor: pointer;
+  }
+}
+    }
+
+
+
+
+
+
+/* Настройки */
+
+/* Затемнение фона при открытых настройках */
+.settings-overlay {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.74);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(1.5px);
+}
+
+/* Окно настроек */
+.settings-modal {
+    background-color: #9a9a9a;
+    border: 3px solid #000;
+    border-radius: 10px;
+    width: 400px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Внутренние блоки с рамками */
+.settings-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Настройки прокрутки для аккаунтов */
+.accounts-block {
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+/* Отдельная строка настройки (серая плашка) */
+.setting-row, .account-item {
+    background-color: #a8a8a8;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.center-text {
+    justify-content: center;
+}
+
+.settings-select {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Кружки для аватарок в аккаунтах */
+.acc-circle {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d9d9d9;
+    font-weight: bold;
+}
+
+/* Настройка инпутов цвета */
+input[type="color"] {
+    border: 2px solid #000;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    cursor: pointer;
+}
+input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+input[type="color"]::-webkit-color-swatch { border: none; border-radius: 3px; }
+
+.color-pickers {
+    display: flex;
+    gap: 5px;
+}
+
+/* Окно настроек (темный фон) */
+.settings-modal {
+    background-color: #4a4a4a; /* Темно-серый фон окна */
+    border: 3px solid #000;
+    border-radius: 10px;
+    width: 400px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Внутренние группирующие блоки */
+.settings-block {
+    background-color: #888888; /* Светло-серый фон блока */
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Отдельная строка настройки (внутри блока) */
+.setting-row {
+    background-color: #797979; /* Чуть светлее для самих полей */
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 4px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-family: sans-serif;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.setting-row:hover {
+    filter: brightness(1.1); /* Легкое высветление при наведении для интерактивности */
+}
+
+
+/* Профиль */
+.acc-photo {
+    width: 45px; /* Увеличили */
+    height: 45px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #b8b8b8;
+}
+
+.acc-circle {
+    width: 45px; /* Тоже увеличили для симметрии */
+    height: 45px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d9d9d9;
+    font-size: 24px;
+}
+
+/* Динамические цвета блоков */
+.block {
+    transition: background-color 0.3s ease; /* Плавная смена цвета */
+}
+
+/* Эти цвета будут перекрываться скриптом, но оставим их как запасные */
+.priority-high { background-color: #ff6b6b; }
+.priority-med { background-color: #b08d6a; }
+.priority-low { background-color: #73a973; }
+
+
+
+
+
+/* Создание товара */
+
+
+/* Основной контейнер-оверлей (фон) */
+.create-item-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); /* Темный полупрозрачный фон */
+    display: none; /* Управляется через JS (flex/none) */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Чтобы точно было поверх всего, включая настройки */
+    backdrop-filter: blur(1.5px); /* Легкое размытие заднего плана */
+}
+
+/* Модальное окно */
+.create-item-modal {
+    background: #8b8380; /* Цвет из твоего макета */
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid #555;
+    position: relative;
+}
+
+/* Заголовок */
+.create-item-modal h2 {
+    margin: 0 0 5px 0;
+    font-size: 22px;
+    text-align: center;
+    color: #000;
+}
+
+/* Секция с превью фотографий */
+.create-photo-section {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    min-height: 85px;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.create-photo-gallery {
+    display: flex;
+    gap: 10px;
+}
+
+/* Квадраты предпросмотра и кнопка "+" */
+.create-photo-preview, 
+.create-add-photo-box {
+    min-width: 65px;
+    width: 105px;
+    height: 65px;
+    background-color: #a09d9d;
+    border: 2px solid #333;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.create-add-photo-box:hover {
+    transform: scale(1.05);
+    background-color: #b5b2b2;
+}
+
+.create-photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+
+
+/* Кнопка удаления фото (крестик) */
+.create-delete-photo {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ff4d4d;
+    color: white;
+    border: 2px solid #333;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* Поля ввода (Инпуты, Текстареа, Селект) */
+.create-item-modal textarea,
+.create-item-modal input[type="number"],
+.create-item-modal input[type="url"],
+.create-item-modal select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #333;
+    border-radius: 6px;
+    background: #ccc;
+    font-size: 14px;
+    color: #000;
+    outline: none;
+    box-sizing: border-box; /* Важно, чтобы паддинги не раздували ширину */
+}
+
+.create-item-modal textarea {
+    resize: none;
+    font-family: inherit;
+}
+
+.create-item-modal select {
+    cursor: pointer;
+}
+
+/* Кнопка "Создать запись" */
+.create-submit-btn {
+    background: #007bff;
+    color: white;
+    border: 2px solid #000;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 5px;
+}
+
+.create-submit-btn:hover {
+    background: #0056b3;
+}
+
+.create-submit-btn:active {
+    transform: translateY(2px);
+}
+
+#submitCreateBtn {
+    background: #0066ff;
+    color: #000;
+    border: 2px solid #000;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+}
+
+#submitCreateBtn:hover {
+    background: #00cc22;
+}
+
+/* Кнопка "+" в галерее создания товара */
+.create-add-photo-box {
+    min-width: 65px;
+    width: 105px;
+    height: 65px;
+    background-color: #a09d9d;
+    border: 2px solid #333;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0; /* Чтобы не сжимался */
+}
+
+/* Ограничиваем размер самой иконки плюса */
+.create-add-photo-box img {
+    width: 24px; /* Фиксированный размер иконки */
+    height: 24px;
+    opacity: 0.7;
+}
+
+.create-add-photo-box:hover img {
+    opacity: 1;
+}
+
+
+.price-container {
+    display: flex;
+    align-items: center;
+    background: #ccc; /* Цвет как у твоих полей */
+    border: 1px solid #000;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+}
+
+#createPrice {
+    flex: 1;
+    border: none !important;
+    background: transparent !important;
+    outline: none;
+    padding: 8px;
+}
+
+.price-checkbox-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    border-left: 1px solid #888; /* Тот самый разделитель */
+    height: 100%;
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoW</title>
+    <link rel="icon" href="./media/papka-removebg-preview.png">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jura&family=Kalam&family=Pacifico&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="./script.js" defer></script>
+    <script src="./block_generator.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="Nazwa" title="SoW - your trusted repository of desires (Storage of Wishes)">
+            <span class="n1">S</span>
+            <span class="n2">o</span>
+            <span class="n1">W</span>
+        </div>
+        <div class="col"> <p class="text_col"> 00000 <span class="currency-symbol">₴</span></p> </div>
+
+        <!-- Фильтр и поиск -->
+
+        <div class="forma">
+            <form class="search-form" id="searchForm">
+                <div class="input-container">
+                    <input type="text" id="searchText" class="box search-input" placeholder="Пошук" data-i18n="search">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                
+                <div class="row">
+                    <select id="searchPriority" class="box select-box">
+                        <option value="" disabled selected data-i18n="priority">По пріоритету</option>
+                        <option value="high" data-i18n="high">Високий</option>
+                        <option value="medium" data-i18n="med">Середній</option>
+                        <option value="low" data-i18n="low">Низький</option>
+                    </select>
+                    
+                    <div class="box price-box">
+                        <span data-i18n="from">От</span>
+                        <input type="number" id="priceMin" placeholder="00000">
+                        <span data-i18n="to">До</span>
+                        <input type="number" id="priceMax" placeholder="00000">
+                        <span class="currency-symbol">₴</span>
+                    </div>
+                </div>
+            </form>
+        </div>    
+
+        <!-- Фильтр и поиск -->
+    </header>
+
+    <main>
+
+        <!-- Блок - пример -->
+
+        <div class="block priority-high">
+            <div class="di">
+                <img class="main-img" src="./media/notimg.svg"/> 
+                <div class="actions">
+                    <div class="btn-vik"><img src="./media/done_off.svg"/></div>
+                    <div class="btn-mus"><img src="./media/trash_of.svg"/></div>
+                </div>
+            </div> 
+            <p class="ops"><span data-i18n="desc">Опис</span> - </p>
+            <p class="cen"><span data-i18n="priceLabel">Ціна</span> - 0000 <span class="currency-symbol">₴</span></p>
+        </div>
+
+        <!-- Блок - пример -->
+
+
+<!-- Островок -->
+
+        <div class="island">
+            <img id="settings" src="./media/settings_off.svg"/>
+            <img id="home" src="./media/home_on.svg"/>
+            <img id="plus" src="./media/plus.svg"/>
+            <img id="done" src="./media/done_off.svg"/>
+            <img id="trash" src="./media/trash_of.svg"/>
+        </div>
+
+<!-- Островок -->
+    </main>
+
+<!-- Настройки -->
+
+    <div class="settings-overlay" id="settingsOverlay">
+        <div class="settings-modal">
+            <div class="settings-block accounts-block">
+        <div class="setting-row" onclick="alert('Эта функция в разработке')">
+            <img src="./media/profile.svg" class="acc-photo"> <span>User(7382)</span>
+        </div>
+        <div class="setting-row" onclick="alert('Эта функция в разработке')">
+            <div class="acc-circle">+</div>
+            <span data-i18n="addAccount">Создать второй профиль</span>
+        </div>
+    </div>
+
+        <div class="settings-block">
+            <div class="setting-row">
+                <span data-i18n="lang">Мова</span>
+                <select id="langSelect" class="settings-select">
+                    <option value="uk">Українська</option>
+                    <option value="ru">Русский</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+            <div class="setting-row">
+                <span data-i18n="currency">Валюта</span>
+                    <select id="currencySelect" class="settings-select">
+                        <option value="UAH" data-i18n="curr_uah">Грн (₴)</option>
+                        <option value="USD" data-i18n="curr_usd">Долар ($)</option>
+                        <option value="EUR" data-i18n="curr_eur">Євро (€)</option>
+                        <option value="RUB" data-i18n="curr_rub">Руб (₽)</option>
+                    </select>
+            </div>
+        </div>
+
+        <div class="settings-block">
+            <div class="setting-row center-text" data-i18n="share">
+                Поділитись списком
+            </div>
+        </div>
+
+        <div class="settings-block">
+            <div class="setting-row">
+                <span data-i18n="colorBg">Колір тла -</span>
+                <div class="color-pickers">
+                    <input type="color" id="bgColor1" value="#7d7d7d">
+                    <input type="color" id="bgColor2" value="#e6e6e6">
+                </div>
+            </div>
+            <div class="setting-row">
+                <span data-i18n="colorHigh">Колір вищого рівня -</span>
+                <input type="color" id="colorHigh" value="#ff6b6b">
+            </div>
+            <div class="setting-row">
+                <span data-i18n="colorMed">Колір середнього рівня -</span>
+                <input type="color" id="colorMed" value="#b08d6a">
+            </div>
+            <div class="setting-row">
+                <span data-i18n="colorLow">Колір низького рівня -</span>
+                <input type="color" id="colorLow" value="#73a973">
+            </div>
+        </div>
+    </div>
+    </div>
+
+<!-- Настройки -->
+
+<!-- Создание товара -->
+
+<div class="create-item-overlay" id="createItemOverlay" style="display: none;">
+    <div class="create-item-modal">
+        <h2 data-i18n="createTitle">Создание товара</h2>
+        
+        <div class="create-photo-section">
+            <div id="createPhotoGallery" class="create-photo-gallery"></div>
+            <div id="createAddPhotoBtn" class="create-add-photo-box">
+                <img src="./media/plus.svg" alt="+">
+            </div>
+            <input type="file" id="createPhotoInput" accept="image/*" multiple style="display: none;">
+        </div>
+
+        <textarea id="createDesc" data-i18n="descInput" placeholder="Опис" rows="4" maxlength="90"></textarea>
+<div class="price-container">
+    <input type="number" id="createPrice" data-i18n="priceInput" placeholder="Цена">
+    <div class="price-checkbox-block">
+        <input type="checkbox" id="hasPriceCheckbox" checked>
+    </div>
+</div>
+        
+        <select id="createPriority">
+            <option value="high" data-i18n="high">Высокий</option>
+            <option value="med" data-i18n="med">Средний</option>
+            <option value="low" data-i18n="low">Низкий</option>
+        </select>
+
+        <input type="url" id="createLink" data-i18n="linkInput" placeholder="Ссылка">
+
+        <button id="submitCreateBtn" class="primary-btn" data-i18n="createSubmit">Создать запись</button>
+    </div>
+</div>
+
+
+
+<!-- Создание товара -->
+
+</body>
+</html>

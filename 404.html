@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk" id="htmlTag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+        <link rel="icon" href="./media/papka-removebg-preview.png">
+    <link rel="stylesheet" href="./404.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jura&family=Kalam&family=Pacifico&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="./script.js" defer></script>
+
+</head>
+<body>
+<div class="baza">
+    <div class="error-code">404</div>
+    <div class="error-message" id="errorMsg">Сторінка не знайдено</div>
+    <button onclick="location.href='index.html'" class="home-btn" id="homeBtn">На головну</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Логика перевода (оставляем как была)
+        const translations404 = {
+            uk: { msg: "Сторінка не знайдено", btn: "На головну" },
+            ru: { msg: "Страница не найдена", btn: "На главную" },
+            en: { msg: "Page not found", btn: "Go to home" }
+        };
+
+        const lang = localStorage.getItem('kow_lang') || 'uk';
+        const t = translations404[lang] || translations404['uk'];
+
+        document.getElementById('errorMsg').innerText = t.msg;
+        document.getElementById('homeBtn').innerText = t.btn;
+        document.documentElement.lang = lang;
+
+        // 2. Логика фона (исправленная под два цвета)
+        const color1 = localStorage.getItem('kow_bg1') || '#1a1a1a'; // Цвет 1 (верхний)
+        const color2 = localStorage.getItem('kow_bg2') || '#000000'; // Цвет 2 (нижний)
+
+        // Применяем градиент на весь body
+        // 180deg — это направление сверху вниз, как на твоих скринах
+        document.body.style.background = `linear-gradient(180deg, ${color1}, ${color2})`;
+        document.body.style.backgroundAttachment = "fixed"; // Чтобы фон не дергался при скролле
+    });
+</script>
+</body>
+</html>

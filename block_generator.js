@@ -68,18 +68,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function attemptCloseCreate() {
-        const lang = localStorage.getItem('kow_lang') || 'uk';
-        const msg = (typeof translations !== 'undefined' && translations[lang]) 
-                    ? translations[lang].confirmExit 
-                    : "Вы точно хотите прекратить создание? Ваши записи слетят.";
-        
-        if (confirm(msg)) {
-            createItemOverlay.style.display = 'none';
-            if (islandPlusBtn) islandPlusBtn.src = './media/plus.svg';
-            resetCreateForm();
-        }
+    
+function attemptCloseCreate() {
+    // Вытягиваем язык
+    const lang = localStorage.getItem('kow_lang') || 'uk';
+    
+    // Безопасно ищем текст. Если window.translations нет, берем дефолт.
+    let msg = "Ви точно хочете припинити створення? Ваші записи зникнуть.";
+    
+    if (typeof translations !== 'undefined' && translations[lang] && translations[lang].confirmExit) {
+        msg = translations[lang].confirmExit;
     }
+
+    // Системное окно
+    if (confirm(msg)) {
+        // Закрываем оверлей
+        if (createItemOverlay) {
+            createItemOverlay.style.display = 'none';
+        }
+        
+        // Меняем иконку плюса назад
+        if (islandPlusBtn) {
+            islandPlusBtn.src = './media/plus.svg';
+        }
+        
+        // Чистим форму
+        resetCreateForm();
+    }
+}
+
 
     function renderGallery() {
         if (!createPhotoGallery) return;

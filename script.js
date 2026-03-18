@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const colorLow = document.getElementById('colorLow');
 
     // --- СЛОВАРЬ (Добавлены desc и priceLabel) ---
-    const translations = {
+    window.translations = {
         uk: {
             search: "Пошук", priority: "По пріоритету", high: "Високий", med: "Середній", low: "Низький",
             from: "Від", to: "До", lang: "Мова", currency: "Валюта", share: "Поділитись списком", 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             colorHigh: "Колір вищого рівня -", colorMed: "Колір середнього рівня -", colorLow: "Колір низького рівня -",
             curr_uah: "Грн (₴)", curr_usd: "Долар ($)", curr_eur: "Євро (€)", curr_rub: "Руб (₽)",
             desc: "Опис", priceLabel: "Ціна",
-            createTitle: "Створення товару", descInput: "Опис - ", priceInput: "Ціна", priceFree: "Без ціни",
+            createTitle: "Створення запису", descInput: "Короткий опис - ", priceInput: "Ціна", priceFree: "Без ціни",
             linkInput: "Посилання", createSubmit: "Створити запис", 
             confirmExit: "Ви точно хочете припинити створення? Ваші записи зникнуть."
         },
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             colorHigh: "Цвет высшего уровня -", colorMed: "Цвет среднего уровня -", colorLow: "Цвет низкого уровня -",
             curr_uah: "Грн (₴)", curr_usd: "Доллар ($)", curr_eur: "Евро (€)", curr_rub: "Руб (₽)",
             desc: "Описание", priceLabel: "Цена",
-            createTitle: "Создание товара", descInput: "Описание - ", priceInput: "Цена", priceFree: "Без цены",
+            createTitle: "Создание записи", descInput: "Краткое описание - ", priceInput: "Цена", priceFree: "Без цены",
             linkInput: "Ссылка", createSubmit: "Создать запись", 
             confirmExit: "Вы точно хотите прекратить создание? Ваши записи слетят."
         },
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             colorHigh: "High priority color -", colorMed: "Medium priority color -", colorLow: "Low priority color -",
             curr_uah: "UAH (₴)", curr_usd: "Dollar ($)", curr_eur: "Euro (€)", curr_rub: "Rub (₽)",
             desc: "Description", priceLabel: "Price",
-            createTitle: "Create item", descInput: "Description - ", priceInput: "Price", priceFree: "Free",
+            createTitle: "Creating a record", descInput: "Short description - ", priceInput: "Price", priceFree: "Free",
             linkInput: "Link", createSubmit: "Create record", 
             confirmExit: "Are you sure you want to stop? Your data will be lost."
         }

@@ -70,7 +70,7 @@ header{
 
 
     .col{
-      width: 13%;
+      width: 8%;
       background-color: #cfcfcf;
       border-radius: 8px;
       border: #000 solid 2px;
@@ -102,6 +102,12 @@ header{
         padding: 0.3%;
         font-size: 10px;
       }
+    }
+    }
+
+ @media (max-width: 1100px) {
+    .col{
+      width: 12%;
     }
     }
 
@@ -430,17 +436,26 @@ main{
       width: 90px;
     }
 
-.actions {
-      .btn-vik {
-        img { width: 30px; }
-      }
+  .actions {
+        .btn-vik {
+          img { width: 30px; }
+        }
 
-      .btn-mus {
-        img { width: 30px; }
+        .btn-mus {
+          img { width: 30px; }
+        }
       }
     }
+
+            .ops {
+    margin: 2px 0 0 5px;
+        font-size: 15px;
   }
 
+  .cen {
+    margin: 2px 0 0 5px;
+    font-size: 15px;
+  }
   }
 }
 

@@ -58,8 +58,19 @@ header{
     }
     }
 
+@media (max-width: 500px) {
+    header{
+    .Nazwa{
+    padding: 1%;
+    padding-left: 2%;
+    }
+    }
+    }
+
+
+
     .col{
-      width: 9%;
+      width: 13%;
       background-color: #cfcfcf;
       border-radius: 8px;
       border: #000 solid 2px;
@@ -85,7 +96,7 @@ header{
 
     @media (max-height: 400px) {
     .col{
-      margin-top: -6px;
+      margin-top: -26px;
 
       .text_col{
         padding: 0.3%;
@@ -94,6 +105,26 @@ header{
     }
     }
 
+ @media (max-width: 550px) {
+    .col{
+      width: 20%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 5px;
+
+      .text_col{
+        padding: 0.2%;
+        font-size: 15px;
+      }
+    }
+    }
+
+ @media (max-width: 400px) {
+    .col{
+      width: 25%;
+    }
+  }
 
 main{
   display: flex;
@@ -215,7 +246,7 @@ main{
     }
 
 
-      @media (max-height: 400px) {
+      @media (max-height: 500px) {
   .forma{
     margin: 2px;
 }
@@ -246,6 +277,44 @@ main{
   }
     }
 
+
+@media (max-width: 550px) {
+  .forma {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    right: 0; /* Растягиваем невидимый контейнер на 100% ширины экрана */
+    margin: 0; /* Убираем margin, чтобы не сдвигало центр */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-form {
+    gap: 5px;
+    width: 95%; /* Форма теперь занимает 90% от ширины экрана */
+  }
+  
+  .row {
+    gap: 2px;
+  }
+  
+  .box {
+    padding: 1px 7px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  .search-icon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .price-box input {
+    width: 50px;
+    font-size: 12px;
+  }
+}
 
 
 
@@ -332,7 +401,48 @@ main{
   }
 }
 
+  @media (max-width: 900px) {
+    .block {
+      background-color: #547150;
+      width: 150px;
+      height: 200px;
+      border: black solid 2px;
+      color: rgb(255, 255, 255);
+      border-radius: 10px;
+      padding-top: 5px;
+      margin: 10px;
+      position: relative;
 
+        .di {
+      position: relative; 
+      width: 140px;
+      height: 90px; 
+      background-color: #d9d9d9;
+      border: black solid 1px;
+      border-radius: 10px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; 
+
+      .main-img {
+      width: 90px;
+    }
+
+.actions {
+      .btn-vik {
+        img { width: 30px; }
+      }
+
+      .btn-mus {
+        img { width: 30px; }
+      }
+    }
+  }
+
+  }
+}
 
 
 /* Острів */
@@ -390,7 +500,56 @@ main{
   border-radius: 10px; 
 
   img {
-    width: 20px;
+    width: 25px;
+    cursor: pointer;
+  }
+}
+    }
+
+
+  @media (max-width: 700px) {
+.island {
+  width: 50%;
+  background-color: #A39DC3;
+  border: solid black 2px;
+  position: fixed;
+  
+  bottom: 20px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  
+  display: flex; 
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px; 
+
+  img {
+    width: 25px;
+    cursor: pointer;
+  }
+}
+    }
+
+  @media (max-width: 500px) {
+.island {
+  width: 70%;
+  background-color: #A39DC3;
+  border: solid black 2px;
+  position: fixed;
+  
+  bottom: 20px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  
+  display: flex; 
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px; 
+
+  img {
+    width: 25px;
     cursor: pointer;
   }
 }

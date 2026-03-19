@@ -7,20 +7,25 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100%;
     width: 100%;
-    overflow: hidden;
     }
 
 body {
-    background: #7d7d7d;
     background: linear-gradient(180deg, rgba(125, 125, 125, 1) 0%, rgba(230, 230, 230, 1) 100%);
-    }
-
+    background-attachment: fixed; /* Фон прибит к экрану и не скроллится */
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh; /* Растягиваем минимум на весь экран */
+    margin: 0;
+}
 header{
     background: #000000;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.671) 80%, rgba(0, 0, 0, 0) 100%);
-    height: 15%;
+    min-height: 80px;
+    height: auto;
+    padding-bottom: 20px;
+    position: relative;
 
     .Nazwa{
     padding: 0.5%;
@@ -60,6 +65,7 @@ header{
 
 @media (max-width: 500px) {
     header{
+      padding-bottom: 60px;
     .Nazwa{
     padding: 1%;
     padding-left: 2%;
@@ -327,6 +333,15 @@ main{
 
 /* блок */
 
+.block_baza {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Це змістить блоки вліво */
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+    padding-left: 15px;
+}
+
 .block {
   background-color: #547150;
   width: 200px;
@@ -335,7 +350,7 @@ main{
   color: rgb(255, 255, 255);
   border-radius: 10px;
   padding-top: 5px;
-  margin: 10px;
+  margin: 5px;
   position: relative;
 
   .di {

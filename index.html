@@ -102,9 +102,9 @@
     <img src="./media/profile.svg" class="acc-photo" id="mainProfileImg">
     <span id="mainProfileName">User(7382)</span>
 </div>
-        <div class="setting-row" onclick="alert('The feature is under development.')">
+        <div id="openAuthTest" class="setting-row">
             <div class="acc-circle">+</div>
-            <span data-i18n="addAccount">Создать второй профиль</span>
+            <span  data-i18n="addAccount">Создать второй профиль</span>
         </div>
     </div>
 
@@ -194,7 +194,7 @@
 
 
 
-<!-- Создание товара -->
+<!-- Создание записи -->
 
 <div class="create-item-overlay" id="createItemOverlay" style="display: none;">
     <div class="create-item-modal">
@@ -229,8 +229,37 @@
 </div>
 
 
+<!-- Регистрация и вход -->
 
-<!-- Создание товара -->
+
+
+<div class="auth-overlay" id="authOverlay" style="display: none;">
+    <div class="auth-modal">
+        <div class="auth-switcher">
+            <span class="auth-switch-link active" id="switchToReg" data-i18n="authRegister">Зарегистрироваться</span>
+            <span class="auth-separator">|</span>
+            <span class="auth-switch-link" id="switchToLogin" data-i18n="authLogin">Войти в аккаунт</span>
+        </div>
+
+        <div id="regForm" class="auth-form-container">
+            <input type="text" data-i18n="placeholderNameReg" placeholder="Придумайте Имя">
+            <input type="email" data-i18n="placeholderEmail" placeholder="Email">
+            <input type="password" data-i18n="placeholderPasswordReg" placeholder="Придумайте пароль">
+            <input type="password" data-i18n="placeholderPasswordRepeat" placeholder="Продублируйте пароль">
+        </div>
+
+        <div id="loginForm" class="auth-form-container" style="display: none;">
+            <input type="text" data-i18n="placeholderEmailOrNick" placeholder="Email или Никнейм">
+            <input type="password" data-i18n="placeholderPasswordLog" placeholder="Пароль">
+            <a href="#" class="forgot-pass-link" data-i18n="authForgot">Забыл пароль</a>
+        </div>
+
+        <div class="auth-buttons">
+            <button class="btn-cancel" id="closeAuthModal" data-i18n="cancel">Отменить</button>
+            <button class="btn-submit" id="authSubmitBtn" data-i18n="authSubmitReg">Создать</button>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

@@ -25,7 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const accNameInput = document.getElementById('accNameInput');
     const accPhotoInput = document.getElementById('accPhotoInput');
 
+    // --- НОВІ ЕЛЕМЕНТИ ДЛЯ ВХОДУ / РЕГИСТРАЦИИ (ЗАГЛУШКИ) ---
+    const openAuthTestBtn = document.getElementById('openAuthTest'); // ТЕСТОВАЯ КНОПКА
+    const authOverlay = document.getElementById('authOverlay');
+    const authSubmitBtn = document.getElementById('authSubmitBtn');
+    const switchToReg = document.getElementById('switchToReg');
+    const switchToLogin = document.getElementById('switchToLogin');
+    const regForm = document.getElementById('regForm');
+    const loginForm = document.getElementById('loginForm');
+    const closeAuthModal = document.getElementById('closeAuthModal');
+
+
     // --- СЛОВНИК ---
+    // Я доповнив його ключами для вікна входу/реєстрації
     window.translations = {
         uk: {
             search: "Пошук", priority: "По пріоритету", high: "Високий", med: "Середній", low: "Низький",
@@ -37,25 +49,37 @@ document.addEventListener('DOMContentLoaded', () => {
             createTitle: "Створення запису", descInput: "Короткий опис - ", priceInput: "Ціна", priceFree: "Без ціни",
             linkInput: "Посилання", createSubmit: "Створити запис", 
             confirmExit: "Ви точно хочете припинити створення? Ваші записи зникнуть.",
-            // Нові ключі
             accHint: "ⓘ - Для редагування натисніть на фото чи ім'я", accActive: "Кіл. Активних бажань",
             accDone: "Кіл. Виконаних бажань", accTotal: "Загальна кіл. Бажань",
-            cancel: "Назад", save: "Зберегти зміни"
+            cancel: "Назад", save: "Зберегти зміни",
+
+            // --- Нові ключі для входу/реєстрації ---
+            authRegister: "Зареєструватися", authLogin: "Увійти в акаунт",
+            placeholderNameReg: "Придумайте Ім'я", placeholderEmail: "Email", 
+            placeholderPasswordReg: "Придумайте пароль", placeholderPasswordRepeat: "Продублюйте пароль",
+            placeholderEmailOrNick: "Email або Нікнейм", placeholderPasswordLog: "Пароль",
+            authForgot: "Забули пароль?", authSubmitReg: "Створити", authSubmitLog: "Увійти"
         },
         ru: {
             search: "Поиск", priority: "По приоритету", high: "Высокий", med: "Средний", low: "Низкий",
             from: "От", to: "До", lang: "Язык", currency: "Валюта", share: "Поделиться списком", 
             addAccount: "Создать второй профиль", colorBg: "Цвет фона -", 
-            colorHigh: "Цвет высшего уровня -", colorMed: "Цвет среднего уровня -", colorLow: "Цвет низкого уровня -",
+            colorHigh: "Цвет высшего уровня -", colorMed: "Цвет среднего уровня -", colorLow: "Цвет низького уровня -",
             curr_uah: "Грн (₴)", curr_usd: "Доллар ($)", curr_eur: "Евро (€)", curr_rub: "Руб (₽)",
             desc: "Описание", priceLabel: "Цена",
             createTitle: "Создание записи", descInput: "Краткое описание - ", priceInput: "Цена", priceFree: "Без цены",
             linkInput: "Ссылка", createSubmit: "Создать запись", 
             confirmExit: "Вы точно хотите прекратить создание? Ваши записи слетят.",
-            // Нові ключі
             accHint: "ⓘ - Для редактирования нажмите на фото или имя", accActive: "Кол. Активных желаний",
             accDone: "Кол. Выполненных желаний", accTotal: "Общее кол. Желаний",
-            cancel: "Назад", save: "Сохранить изменения"
+            cancel: "Назад", save: "Сохранить изменения",
+
+            // --- Нові ключі для входу/реєстрації ---
+            authRegister: "Зарегистрироваться", authLogin: "Войти в аккаунт",
+            placeholderNameReg: "Придумайте Имя", placeholderEmail: "Email", 
+            placeholderPasswordReg: "Придумайте пароль", placeholderPasswordRepeat: "Продублируйте пароль",
+            placeholderEmailOrNick: "Email или Никнейм", placeholderPasswordLog: "Пароль",
+            authForgot: "Забыл пароль", authSubmitReg: "Создать", authSubmitLog: "Войти"
         },
         en: {
             search: "Search", priority: "By priority", high: "High", med: "Medium", low: "Low",
@@ -67,10 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
             createTitle: "Creating a record", descInput: "Short description - ", priceInput: "Price", priceFree: "Free",
             linkInput: "Link", createSubmit: "Create record", 
             confirmExit: "Are you sure you want to stop? Your data will be lost.",
-            // Нові ключі
             accHint: "ⓘ - Click on the photo or name to edit.", accActive: "Active desires count",
             accDone: "Completed desires count", accTotal: "Total desires count",
-            cancel: "Back", save: "Save changes"
+            cancel: "Back", save: "Save changes",
+
+            // --- Нові ключі для входу/реєстрації ---
+            authRegister: "Sign Up", authLogin: "Log In",
+            placeholderNameReg: "Pick a name", placeholderEmail: "Email", 
+            placeholderPasswordReg: "Pick a password", placeholderPasswordRepeat: "Repeat password",
+            placeholderEmailOrNick: "Email or Nickname", placeholderPasswordLog: "Password",
+            authForgot: "Forgot password?", authSubmitReg: "Create", authSubmitLog: "Log In"
         }
     };
 
@@ -79,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang] && translations[lang][key]) {
+                // ОБНОВЛЕНИЕ: Учим функцию переводить placeholder
                 if (el.tagName === 'TEXTAREA' || el.tagName === 'INPUT') {
                     el.placeholder = translations[lang][key];
                 } else {
@@ -150,7 +181,70 @@ document.addEventListener('DOMContentLoaded', () => {
         loadProfileData();
     }
 
-    // --- ОБРОБНИКИ ---
+    // --- ОБРОБНИКИ ДЛЯ АВТОРІЗАЦІЇ (ЗАГЛУШКА ЯК НА СКРИНШОТІ) ---
+    
+    // Функция открытия/закрытия
+    function toggleAuthOverlay(show = true) {
+        if (authOverlay) {
+            authOverlay.style.display = show ? 'flex' : 'none';
+            if (show) {
+                // По умолчанию открываем регистрацию
+                switchToReg.click();
+            }
+        }
+    }
+
+    // ТЕСТОВА КНОПКА ОТКРЫТИЯ
+    if (openAuthTestBtn) {
+        openAuthTestBtn.addEventListener('click', () => {
+            toggleAuthOverlay(true);
+        });
+    }
+
+    // Кнопка «Отменить»
+    if (closeAuthModal) {
+        closeAuthModal.addEventListener('click', () => {
+            toggleAuthOverlay(false);
+        });
+    }
+
+    // Переключатель: На Регистрацию
+    if (switchToReg && switchToLogin) {
+        switchToReg.addEventListener('click', () => {
+            switchToReg.classList.add('active');
+            switchToLogin.classList.remove('active');
+            regForm.style.display = 'flex';
+            loginForm.style.display = 'none';
+            // Меняем текст главной кнопки с учетом языка
+            authSubmitBtn.setAttribute('data-i18n', 'authSubmitReg');
+            const lang = localStorage.getItem('kow_lang') || 'uk';
+            authSubmitBtn.textContent = translations[lang].authSubmitReg;
+        });
+
+        // Переключатель: На Вход
+        switchToLogin.addEventListener('click', () => {
+            switchToLogin.classList.add('active');
+            switchToReg.classList.remove('active');
+            loginForm.style.display = 'flex';
+            regForm.style.display = 'none';
+            // Меняем текст главной кнопки с учетом языка
+            authSubmitBtn.setAttribute('data-i18n', 'authSubmitLog');
+            const lang = localStorage.getItem('kow_lang') || 'uk';
+            authSubmitBtn.textContent = translations[lang].authSubmitLog;
+        });
+    }
+
+    // При клике на оверлей - закрывать
+    if (authOverlay) {
+        authOverlay.addEventListener('click', (e) => {
+            if (e.target === authOverlay) {
+                toggleAuthOverlay(false);
+            }
+        });
+    }
+
+
+    // --- ОБРОБНИКИ (ТВОИ СУЩЕСТВУЮЩИЕ) ---
     
     // Відкриття/закриття основних налаштувань
     settingsBtn.addEventListener('click', () => {
